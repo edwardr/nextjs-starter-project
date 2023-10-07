@@ -17,6 +17,8 @@ Likewise, the project will be slowly converted to Typescript, and I have many ad
 ## Get Started
 Requires Node 16+
 
+Set up .env file: `.env.example` and rename to `.env`
+
 Install dependencies:
 
 `npm install`
@@ -25,7 +27,7 @@ To seed the default SQLite database, run:
 
 `npx prisma db seed`
 
-The schema is located in `prisma/schema.prisma` and includes Posts, Videos, and Pages. Data is generated using the Faker library.
+The schema is located in `prisma/schema.prisma` and includes Posts, Videos, and Pages. Data is generated using the Faker library and LoremFlickr.
 
 Once the DB is seeded, run:
 
@@ -33,13 +35,17 @@ Once the DB is seeded, run:
 
 `npm run dev -- -p PORTNUM` to run on the port of your choice.
 
+To run a production build:
+
+`npm run build`
+
 ## Install/Run Compass for SCSS
 
 Install Ruby:
 
 http://www.ruby-lang.org/en/downloads/
 
-`gem update --system`\
+`gem update --system`
 `gem install compass`
 
 cd into the project directory and run:
@@ -54,8 +60,10 @@ You can use scoped classes in a component by importing the compiled CSS file:
 
 `import stylesheetName from '../path-to/css-file/stylesheetName.css';`
 
-`<div className={stylesheetName.className}`
+`<div className={stylesheetName.className}>`
 
 Additionally, you can combine this approach as such:
 
-`<div className=\`className ${stylesheetName.className}\`>`
+```
+<div className={`className ${stylesheetName.className}`}>
+```
