@@ -23,11 +23,15 @@ Install dependencies:
 
 `npm install`
 
-To seed the default SQLite database, run:
+Run the Prisma migration to set up the default SQLite database:
+
+`npx prisma migrate dev`
+
+Seed the DB by running:
 
 `npx prisma db seed`
 
-The schema is located in `prisma/schema.prisma` and includes Posts, Videos, and Pages. Data is generated using the Faker library and LoremFlickr.
+The schema is located in `prisma/schema.prisma` and includes Posts, Videos, and Pages. Data is generated using the Faker library and LoremFlickr with the `prisma/seed.ts` file.
 
 Once the DB is seeded, run:
 
