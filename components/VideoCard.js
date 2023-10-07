@@ -30,6 +30,8 @@ class VideoCard extends React.Component {
     return(
       <Image
         src={image}
+        //style={{objectFit: "contain"}}
+        //fill={true}
         width={400}
         height={300}
         alt=""
@@ -42,12 +44,17 @@ class VideoCard extends React.Component {
     const utility = new Utility;
     return(
       <div className={videoCardStyles.card}>
-        <div className={videoCardStyles.thumbnail}>
-          {this._renderVideoThumbnail(image)}
-        </div>
+        <Link href="/videos/[video]" as={`/videos/${id}`}>
+          <>
+          <div className={videoCardStyles.thumbnail}>
+            <img className={videoCardStyles.playButton} src="/images/video-play.svg" alt="" />
+            {this._renderVideoThumbnail(image)}
+          </div>
+          </>
+        </Link>
         <div className={videoCardStyles.content}>
           <Link href="/videos/[video]" as={`/videos/${id}`}>
-            <h3>{decodeHTML(title)}</h3>
+            {decodeHTML(title)}
           </Link>
         </div>
       </div>

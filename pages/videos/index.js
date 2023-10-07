@@ -25,7 +25,7 @@ class Videos extends React.Component {
       videos: this.props.videos,
     })
 
-    if( this.props.videos.length < 21 ) {
+    if( this.props.videos.length < 10 ) {
       this.setState({
         reached_end: true,
       })
@@ -33,8 +33,7 @@ class Videos extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log('update');
-    // console.log(this.state);
+    //
   }
 
   async _showMore() {
@@ -42,7 +41,7 @@ class Videos extends React.Component {
       working: true
     });
     const apiService = new API
-    let items = 21;
+    let items = 10;
     let offset = this.state.videos.length;
     const videos = await apiService.fetchVideos(items, offset);
     if( videos.length < items ) {
@@ -77,16 +76,18 @@ class Videos extends React.Component {
 
         <div className={videosStyles.contentWrap}>
           <h2 className={videosStyles.pageTitle}>Videos</h2>
-          {videos.map(video =>
-            <div key={video.id} className={`column column-block`}>
-              <VideoCard
-                id={video.id}
-                title={video.title}
-                image={video.image}
-                video_id={video.video_id}
-              />
-            </div>
-          )}
+          <div className={videosStyles.grid}>
+            {videos.map(video =>
+              <div key={video.id} className={videosStyles.block}>
+                <VideoCard
+                  id={video.id}
+                  title={video.title}
+                  image={video.image}
+                  video_id={video.video_id}
+                />
+              </div>
+            )}
+          </div>
           <div className={this._renderShowMoreClass()}>
             <button
               onClick={() => {
@@ -104,9 +105,8 @@ class Videos extends React.Component {
 
 export default Videos
 
-// Server-side rendering data
 export async function getStaticProps(context) {
-  const apiService = new API
+  const apiService = new API;
   const videos = await apiService.fetchVideos(10);
   return {
     props: {

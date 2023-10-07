@@ -1,4 +1,4 @@
-import { PrismaClient, Video, Post } from "@prisma/client";
+import { PrismaClient, Video, Post, Page } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 
 // Run this seeder with npx prisma db seed.
@@ -6,13 +6,13 @@ import { faker } from "@faker-js/faker";
 
 const prisma = new PrismaClient();
 
-async function addVideo(video: Video): Promise<void> {
-  await prisma.video.create({ data: { ...video }});
-}
+// async function addVideo(video: Video): Promise<void> {
+//   await prisma.video.create({ data: { ...video }});
+// }
 
-async function addPost(post: Post): Promise<void> {
-  await prisma.post.create({ data: { ...post }});
-}
+// async function addPost(post: Post): Promise<void> {
+//   await prisma.post.create({ data: { ...post }});
+// }
 
 function getRandomUnixTimestamp(min: number, max: number): number {
   const randomTs = Math.floor(
@@ -53,13 +53,12 @@ const videoIds = [
 async function main() {
   await prisma.video.deleteMany({});
   await prisma.post.deleteMany({});
-
-  const count = 50;
+  await prisma.page.deleteMany({});
 
   // createMany not supported in Prisma SQLite
   // @see https://github.com/prisma/prisma/issues/11507#issuecomment-1025587202
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < 50; i++) {
     const randomVideoId = Math.floor(Math.random() * videoIds.length);
     const video: Video = {
       id: i,
@@ -81,6 +80,17 @@ async function main() {
 
     await prisma.video.create({ data: { ...video }});
     await prisma.post.create({ data: { ...post }});
+  }
+
+  for (let i = 0; i < 5; i++) {
+    const page: Page = {
+      id: i,
+      title: faker.lorem.sentence(1),
+      slug: faker.lorem.slug(),
+      content: faker.lorem.paragraphs(10),
+    };
+
+    await prisma.page.create({ data: { ...page }});
   }
 }
 

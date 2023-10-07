@@ -79,11 +79,11 @@ class Header extends React.Component {
           <ul>
             {menu_items.map(item =>
               <li key={item.name}>
-                <MenuLink
-                  href={item.path}
-                >
+                <MenuLink href={item.path}>
                   <a>{item.name}</a>
                 </MenuLink>
+                {item.children.length > 0 && `expand`}
+                {this._renderMenuCaret(item.children)}
                 {this._renderSubMenuItems(item.children)}
               </li>
             )}
@@ -116,6 +116,14 @@ class Header extends React.Component {
     }
   }
 
+  _renderMenuCaret = (children) => {
+    if (children && children.length >= 1 ) {
+      return(
+        <img className={headerStyles.menuCaret} src="/images/chevron-down.svg" alt="" />
+      )
+    }
+  }
+
   _renderFixedMenu = (menu_items) => {
     if( this.state.fixed_menu_visible == true || this.state.menu_open ) {
       return(
@@ -140,9 +148,7 @@ class Header extends React.Component {
             <ul className={`menu ${headerStyles.menu}`}>
               {menu_items.map(item =>
                 <li key={item.name}>
-                  <MenuLink
-                    href={item.path}
-                  >
+                  <MenuLink href={item.path}>
                     <a>{item.name}</a>
                   </MenuLink>
                   {this._renderSubMenuItems(item.children)}
@@ -162,7 +168,6 @@ class Header extends React.Component {
     const menu_items = menus.header_menu;
     return(
       <>
-      <div className={headerStyles.maintenanceBlock}></div>
       <header className={headerStyles.header}>
         <div className={headerStyles.logo}>
           <Link href="/">
@@ -184,11 +189,10 @@ class Header extends React.Component {
           <ul className={`menu ${headerStyles.menu}`}>
             {menu_items.map(item =>
               <li key={item.name}>
-                <MenuLink
-                  href={item.path}
-                >
+                <MenuLink href={item.path}>
                   <a>{item.name}</a>
                 </MenuLink>
+                {this._renderMenuCaret(item.children)}
                 {this._renderSubMenuItems(item.children)}
               </li>
             )}

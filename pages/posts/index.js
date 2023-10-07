@@ -28,7 +28,7 @@ class Posts extends React.Component {
       posts: this.props.posts,
     })
 
-    if( this.props.posts.length < 20 ) {
+    if( this.props.posts.length < 10 ) {
       this.setState({
         reached_end: true,
       })
@@ -80,22 +80,23 @@ class Posts extends React.Component {
 
         <div className={blogStyles.contentWrap}>
           <h2 className={blogStyles.pageTitle}>Posts</h2>
-          {posts.map(post =>
-            <div key={post.id} className={blogStyles.cardWrap}>
-              <BlogCard
-                id={post.id}
-                title={post.title}
-                author_byline={post.author}
-                topics={post.category}
-                publication_date={post.date}
-                excerpt={post.content}
-                permalink={post.id}
-                image={post.image}
-                slug={post.id}
-              />
-            </div>
-          )}
-
+          <div className={blogStyles.grid}>
+            {posts.map(post =>
+              <div key={post.id} className={blogStyles.block}>
+                <BlogCard
+                  id={post.id}
+                  title={post.title}
+                  author_byline={post.author}
+                  topics={post.category}
+                  publication_date={post.date}
+                  excerpt={utility.trimString(100, post.content)}
+                  permalink={post.id}
+                  image={post.image}
+                  slug={post.id}
+                />
+              </div>
+            )}
+          </div>
           <div className={this._renderShowMoreClass()}>
             <button
               onClick={() => {

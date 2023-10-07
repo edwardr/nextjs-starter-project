@@ -20,13 +20,12 @@ class SocialMediaShare extends React.Component {
 
   render() {
     const {url} = this.props;
-    let linkedin_url = url.replace(/\/$/, '');
+    let linkedinUrl = url.replace(/\/$/, '');
     const {title} = this.props;
     return(
       <>
       <section className={socialMediaShareStyles.shareBar} role="region" aria-label="Social Media Sharing">
         <ul>
-          <li className={socialMediaShareStyles.heading}><h6>Share:</h6></li>
           <li>
             <a
             onClick={()=> {
@@ -49,7 +48,7 @@ class SocialMediaShare extends React.Component {
           <li>
             <a
             onClick={()=> {
-              this.openShareWindow('Share on LinkedIn', `https://www.linkedin.com/shareArticle?mini=true&url=${linkedin_url}`);
+              this.openShareWindow('Share on LinkedIn', `https://www.linkedin.com/shareArticle?mini=true&url=${linkedinUrl}`);
             }}
             title="Share on LinkedIn" aria-label="Share on LinkedIn" href="">
               <img src="/images/linkedin-share.svg" alt="Share on LinkedIn" />

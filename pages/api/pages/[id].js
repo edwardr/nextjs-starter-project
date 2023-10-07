@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 export default async function handler(req, res) {
   const {id} = req.query;
   try {
-    const result = await prisma.post.findUnique({
+    const result = await prisma.page.findUnique({
       where: {
         id: parseInt(id)
       }

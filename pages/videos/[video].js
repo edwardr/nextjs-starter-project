@@ -9,6 +9,8 @@ import Footer from '../../components/Footer';
 import YouTube from 'react-youtube';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import videoStyles from '../../public/styles/modules/video.module.css';
+import {withRouter} from 'next/router'
+import SocialMediaShare from '../../components/SocialMediaShare';
 import Cookies from 'js-cookie';
 
 class Video extends React.Component {
@@ -49,21 +51,26 @@ class Video extends React.Component {
           <meta charSet="utf-8"/>
         </Head>
         <Header />
-        <div className={videoStyles.breadcrumbRow}>
-          <Breadcrumbs
-            base_path={'/videos'}
-            base_name={'Videos'}
-            name={decodeHTML(video.title)}
-          />
-        </div>
-
         <div className={videoStyles.contentWrap}>
+          <div className={videoStyles.breadcrumbRow}>
+            <Breadcrumbs
+              base_path={'/videos'}
+              base_name={'Videos'}
+              name={decodeHTML(video.title)}
+            />
+          </div>
           <div className={videoStyles.row}>
             <div className="responsive-embed widescreen">
               <YouTube videoId={video.video_id} opts={opts} onReady={this._onReady} />
             </div>
             <h2 className={videoStyles.pageTitle}>{decodeHTML(video.title)}</h2>
             <HTML html={video.description}/>
+            <div className={videoStyles.shareBox}>
+              <SocialMediaShare
+                url={this.props.pageUrl}
+                title={video.title}
+              />
+            </div>
           </div>
         </div>
         <Footer />
@@ -75,19 +82,20 @@ class Video extends React.Component {
     const apiService = new API
     const video = await apiService.fetchVideo(ctx.query.video);
     if (ctx.res) {
-      if( video.hasOwnProperty('code') ) {
-        if( video.code == 'error' ) {
-          ctx.res.writeHead(302, { Location: '/404' });
-          ctx.res.end();
-          return {}
-        }
+      if( video.hasOwnProperty('error') ) {
+        ctx.res.writeHead(302, { Location: '/404' });
+        ctx.res.end();
+        return {}
       }
     }
 
+    const url = ctx.req.headers.referer;
+
     return {
-      data: video
+      data: video,
+      pageUrl: url
     }
   }
 }
 
-export default Video
+export default withRouter(Video)

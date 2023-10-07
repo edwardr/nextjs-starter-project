@@ -11,6 +11,27 @@
       "children": []
     },
     {
+      "name": "Static Page",
+      "path": "/page",
+      "children": [
+        {
+          "name": "Dynamic 1",
+          "path": "/1",
+          "children": []
+        },
+        {
+          "name": "Dynamic 2",
+          "path": "/2",
+          "children": []
+        },
+        {
+          "name": "Dynamic 3",
+          "path": "/3",
+          "children": []
+        }
+      ]
+    },
+    {
       "name": "Videos",
       "path": "/videos",
       "children": []
@@ -18,7 +39,7 @@
   ],
   "footer_menu": [
     {
-      "name": "Index",
+      "name": "Home",
       "path": "/",
       "children": []
     }

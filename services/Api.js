@@ -14,40 +14,8 @@ export default class Api {
     this.api_url = api_url;
   }
 
-  async processForm(
-    endpoint,
-    first_name,
-    last_name,
-    email_address,
-    state,
-    phone_number,
-    message
-  ) {
-    const url = `${this.api_url}/${endpoint}/`
-    const json = JSON.stringify({
-      "first_name": first_name,
-      "last_name": last_name,
-      "email_address": email_address,
-      "state": state,
-      "phone_number": phone_number,
-      "message": message
-    });
-
-    const res = await fetch(url, {
-      method: 'post',
-      body: json,
-      headers: {
-        "Content-Type": "application/json"
-      },
-    });
-
-    const ret = await res.json()
-
-    return ret;
-  }
-
-  async fetchPosts(limit = 10, offset = 0, orderby = 'date') {
-    const url = `${this.api_url}/posts/?limit=${limit}&offset=${offset}&orderby=${orderby}`
+  async fetchPosts(limit = 10, offset = 0) {
+    const url = `${this.api_url}/posts/?limit=${limit}&offset=${offset}`
 
     const res = await fetch(url, {
       method: 'get',
@@ -67,8 +35,8 @@ export default class Api {
     return blog;
   }
 
-  async fetchVideos(limit = 10) {
-    const url = `${this.api_url}/videos/?limit=${limit}`
+  async fetchVideos(limit = 10, offset = 0) {
+    const url = `${this.api_url}/videos/?limit=${limit}&offset=${offset}`
 
     const res = await fetch(url, {
       method: 'get',
@@ -86,6 +54,12 @@ export default class Api {
     const res = await fetch(`${this.api_url}/videos/${id}`)
     const blog = await res.json()
     return blog;
+  }
+
+  async fetchPage(id) {
+    const res = await fetch(`${this.api_url}/pages/${id}`)
+    const page = await res.json()
+    return page;
   }
 
 }
