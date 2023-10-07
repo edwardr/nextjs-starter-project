@@ -1,6 +1,5 @@
 import React from 'react';
 import adBlockCheckStyles from '../public/styles/modules/components/adblockcheck.module.css';
-import Link from 'next/link';
 import Cookies from 'js-cookie'
 
 class AdBlockCheck extends React.Component {
@@ -15,7 +14,7 @@ class AdBlockCheck extends React.Component {
 	async componentDidMount() {
 		let comp = this;
 		setTimeout( function(e) {
-			var checkEl = document.querySelector('#ad-zone-check');
+			var checkEl = document.querySelector('#ad-check');
 			if( checkEl ) {
 				if (checkEl.offsetHeight === 0 ) {
 					var shownAdBlockWarning = Cookies.get('shown_adblock_warning');
@@ -68,7 +67,7 @@ class AdBlockCheck extends React.Component {
 	render() {
 		const {open} = this.state;
 		if( !open ) {
-			return <div id="ad-zone-check" className="adszone" style={{position: 'absolute', left: '-9999px' }}>ad</div>;
+			return <div id="ad-check" className="adzone" style={{position: 'absolute', left: '-9999px' }}>ad</div>;
 		}
 		return(
 			<>
@@ -82,7 +81,7 @@ class AdBlockCheck extends React.Component {
 					<img src="/images/close-white.svg" alt="" />
 				</button>
 				<div className={adBlockCheckStyles.content}>
-					<h5>For the best user experience, we encourage you to disable your ad blocker on your browser or to whitelist https://govwhitepapers.com.</h5>
+					<h5>Please disable your adblocker for the best experience.</h5>
 				</div>
 			</div>
 			</>

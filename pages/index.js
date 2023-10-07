@@ -54,7 +54,7 @@ class Index extends React.Component {
           <meta charSet="utf-8"/>
         </Head>
         <Header />
-        <div className={indexStyles.wrap}>
+        <div className={indexStyles.contentWrap}>
           <h1>Hello, World!</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           {/* <label>

@@ -197,9 +197,6 @@ class Header extends React.Component {
         {this._renderCompactMenu(menu_items)}
       </header>
       {this._renderFixedMenu(menu_items)}
-      <div id="no-ie">
-        <h4>Your browser is not compatible with this application. Please use the latest version of Google Chrome, Mozilla Firefox, Microsoft Edge or Safari.</h4>
-      </div>
       </>
     );
   }
