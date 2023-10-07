@@ -16,7 +16,7 @@ class Posts extends React.Component {
       posts: this.props.posts,
       topic: '',
       sort: '',
-      per: 20,
+      per: 10,
       search: '',
       reached_end: false,
       working: false
@@ -115,7 +115,7 @@ export default Posts
 //
 export async function getStaticProps(context) {
   const apiService = new API
-  const posts = await apiService.fetchPosts(20);
+  const posts = await apiService.fetchPosts(10);
   return {
     props: {
       posts,

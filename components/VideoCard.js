@@ -4,6 +4,7 @@ import Router from 'next/router'
 import Utility from '../helpers/Utility'
 import {decodeHTML} from 'entities'
 import Link from 'next/link'
+import Image from 'next/image'
 import API from '../services/Api'
 
 class VideoCard extends React.Component {
@@ -24,25 +25,25 @@ class VideoCard extends React.Component {
     // console.log(this.prop);
   }
 
-  _renderVideoThumbnail = (featured_media) => {
+  _renderVideoThumbnail = (image) => {
+    if (!image) return null;
     return(
-      <Link href="/videos/[video]" as={`/videos/${this.props.id}`}>
-        <img src={this.props.image} alt={this.props.image} />
-      </Link>
-    )
+      <Image
+        src={image}
+        width={400}
+        height={300}
+        alt=""
+      />
+    );
   }
 
   render() {
-    const {title} = this.props;
-    const {permalink} = this.props;
-    const {featured_media} = this.props;
-    const {slug} = this.props;
-    const {id} = this.props;
+    const {id, title, image} = this.props;
     const utility = new Utility;
     return(
       <div className={videoCardStyles.card}>
         <div className={videoCardStyles.thumbnail}>
-          {this._renderVideoThumbnail(featured_media)}
+          {this._renderVideoThumbnail(image)}
         </div>
         <div className={videoCardStyles.content}>
           <Link href="/videos/[video]" as={`/videos/${id}`}>

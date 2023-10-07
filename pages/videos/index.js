@@ -104,9 +104,10 @@ class Videos extends React.Component {
 
 export default Videos
 
+// Server-side rendering data
 export async function getStaticProps(context) {
   const apiService = new API
-  const videos = await apiService.fetchVideos(21);
+  const videos = await apiService.fetchVideos(10);
   return {
     props: {
       videos

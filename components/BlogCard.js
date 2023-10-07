@@ -41,23 +41,15 @@ class BlogCard extends React.Component {
     return(
       <Image
         src={image}
-        width={800}
-        height={600}
+        width={400}
+        height={300}
         alt=""
     />
     )
   }
 
   render() {
-    console.log(this.props.image);
-    const {title} = this.props;
-    const {permalink} = this.props;
-    const {excerpt} = this.props;
-    const {featured_media} = this.props;
-    const {slug} = this.props;
-    const {id} = this.props;
-    const {date} = this.props;
-    const {author} = this.props;
+    const { id, title, permalink, excerpt, image, date, author } = this.props;
     const utility = new Utility;
     return(
       <div className={blogCardStyles.card}>
@@ -65,7 +57,7 @@ class BlogCard extends React.Component {
           {this._renderImage(this.props.image)}
         </div>
         <div className={blogCardStyles.content}>
-          <Link href="/posts/[post]" as={`/posts/${slug}`}>
+          <Link href="/posts/[post]" as={`/posts/${id}`}>
             <h3>{decodeHTML(title)}</h3>
           </Link>
           {this._renderAuthor(author)}

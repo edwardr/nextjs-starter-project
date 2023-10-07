@@ -1,6 +1,9 @@
 import { PrismaClient, Video, Post } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 
+// Run this seeder with npx prisma db seed.
+// seed.ts config in package.json
+
 const prisma = new PrismaClient();
 
 async function addVideo(video: Video): Promise<void> {
@@ -60,8 +63,8 @@ async function main() {
     const randomVideoId = Math.floor(Math.random() * videoIds.length);
     const video: Video = {
       id: i,
-      title: faker.lorem.sentence(1),
-      content: faker.lorem.sentence({ min: 5, max: 10 }),
+      title: faker.lorem.sentence({ min: 5, max: 10 }),
+      content: faker.lorem.paragraphs(1),
       video_id: videoIds[randomVideoId],
       image: faker.image.urlLoremFlickr({ width: 800, height: 600 })
     };
@@ -72,7 +75,7 @@ async function main() {
       author: faker.person.fullName(),
       date: getRandomUnixTimestamp(new Date('2021-01-01').getTime() / 1000, new Date('2023-01-01').getTime() / 1000),
       category: faker.lorem.sentence(1),
-      content: faker.lorem.sentence({ min: 5, max: 10 }),
+      content: faker.lorem.paragraphs(3),
       image: faker.image.urlLoremFlickr({ width: 800, height: 600 })
     };
 

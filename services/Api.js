@@ -46,8 +46,8 @@ export default class Api {
     return ret;
   }
 
-  async fetchPosts(items = 20, offset = 0, orderby = 'date') {
-    const url = `${this.api_url}/posts/?items=${items}&offset=${offset}&orderby=${orderby}`
+  async fetchPosts(limit = 10, offset = 0, orderby = 'date') {
+    const url = `${this.api_url}/posts/?limit=${limit}&offset=${offset}&orderby=${orderby}`
 
     const res = await fetch(url, {
       method: 'get',
@@ -67,8 +67,8 @@ export default class Api {
     return blog;
   }
 
-  async fetchVideos(items = 20) {
-    const url = `${this.api_url}/videos/?items=${items}`
+  async fetchVideos(limit = 10) {
+    const url = `${this.api_url}/videos/?limit=${limit}`
 
     const res = await fetch(url, {
       method: 'get',
