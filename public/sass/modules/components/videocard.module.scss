@@ -1,19 +1,35 @@
 @import "../../_variables.scss";
 
 .card {
-	.thumbnail {
-		cursor: pointer;
-	}
+  .thumbnail {
+    cursor: pointer;
+    position: relative;
+    img:not(.playButton) {
+      color: transparent;
+      object-fit: cover;
+      width: 100%;
+      max-width: 100%;
+    }
 
-	.content {
-		.name {
-			color: $colorBlack;
-			h3 {
-				font-size: 18px;
-				line-height: 22px;
-				font-weight: 400;
-				padding-top: 12px;
-			}
-		}
-	}
+    .playButton {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 48px;
+      transition: transform 0.25s;
+    }
+
+    &:hover {
+      .playButton {
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  .content {
+    margin-bottom: 24px;
+  }
 }

@@ -1,1 +1,1 @@
-.card .thumbnail{cursor:pointer}.card .content .name{color:#000}.card .content .name h3{font-size:18px;line-height:22px;font-weight:400;padding-top:12px}
+.card .thumbnail{cursor:pointer;position:relative}.card .thumbnail img:not(.playButton){color:transparent;object-fit:cover;width:100%;max-width:100%}.card .thumbnail .playButton{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;width:48px;transition:transform 0.25s}.card .thumbnail:hover .playButton{transform:scale(1.15)}.card .content{margin-bottom:24px}

@@ -8,7 +8,7 @@ class NextJsApp extends App {
     super(props);
     this.state = {
       access_token: this._fetchToken(),
-      is_server: (typeof window === 'undefined')
+      is_server: (typeof window === 'undefined'),
     }
 
     this.checkIE();
@@ -19,7 +19,6 @@ class NextJsApp extends App {
   }
 
   checkIE() {
-    console.log(this.state);
     if( !this.state.is_server ) {
       let ua = window.navigator.userAgent,
           isIE = /MSIE/.test(ua),

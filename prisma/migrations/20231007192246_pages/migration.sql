@@ -17,3 +17,11 @@ CREATE TABLE "Video" (
     "video_id" TEXT NOT NULL,
     "image" TEXT
 );
+
+-- CreateTable
+CREATE TABLE "Page" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "slug" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "content" TEXT NOT NULL
+);

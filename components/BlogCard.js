@@ -17,13 +17,11 @@ class BlogCard extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('prop mount');
-    // console.log(this.prop);
+    //
   }
 
   componentDidUpdate() {
-    // console.log('prop update');
-    // console.log(this.prop);
+    //
   }
 
   _renderAuthor = (author) => {
@@ -53,15 +51,18 @@ class BlogCard extends React.Component {
     const utility = new Utility;
     return(
       <div className={blogCardStyles.card}>
-        <div className={blogCardStyles.thumbnail}>
-          {this._renderImage(this.props.image)}
-        </div>
         <div className={blogCardStyles.content}>
           <Link href="/posts/[post]" as={`/posts/${id}`}>
-            <h3>{decodeHTML(title)}</h3>
+            <>
+              <div className={blogCardStyles.thumbnail}>
+                {this._renderImage(this.props.image)}
+              </div>
+              <h3>{decodeHTML(title)}</h3>
+              {this._renderAuthor(author)}
+              <span className={blogCardStyles.excerpt}>{decodeHTML(excerpt)}</span>
+            </>
           </Link>
-          {this._renderAuthor(author)}
-          <span className={blogCardStyles.excerpt}>{decodeHTML(excerpt)}</span>
+
         </div>
       </div>
     )

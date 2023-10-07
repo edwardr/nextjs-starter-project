@@ -1,12 +1,14 @@
 @import "../../_variables.scss";
 
 .breadcrumbs {
+  margin: 16px 0;
   font-size: 16px;
   @media screen and ( min-width: 992px ) {
     font-size: 18px;
   }
   ul {
     margin: 0;
+    padding: 0;
     li {
       font-size: inherit;
       display: inline-block;

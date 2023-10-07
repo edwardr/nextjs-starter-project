@@ -1,9 +1,5 @@
 @import "../_variables.scss";
 
-.breadcrumbRow {
-  margin-top: 16px;
-}
-
 .contentWrap {
   margin: 0 auto;
   padding: 16px 0;
@@ -14,9 +10,28 @@
     max-width: 840px;
     padding: 24px 0;
   }
+
+  .breadcrumbRow {
+    margin-top: 0;
+  }
+
   img {
     @media screen and (max-width: 600px) {
       width: 100%;
+    }
+  }
+
+  .description {
+    position: relative;
+    .thumbnail {
+      cursor: pointer;
+      position: relative;
+      img {
+        color: transparent;
+        object-fit: cover;
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
 

@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialMediaShare from '../components/SocialMediaShare';
 import indexStyles from '../public/styles/modules/index.module.css';
+import {withRouter} from 'next/router'
 import Cookies from 'js-cookie';
 
 class Index extends React.Component {
@@ -47,6 +48,7 @@ class Index extends React.Component {
         modestbranding: true,
       },
     };
+
     return(
       <>
         <Head>
@@ -57,15 +59,6 @@ class Index extends React.Component {
         <div className={indexStyles.contentWrap}>
           <h1>Hello, World!</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          {/* <label>
-            <span>State Picker</span>
-            <select value={this.state.state} onChange={this.handleChange} autoComplete={utility.generateRandomString()} name="state">
-              <option value="0">Select Your State</option>
-              {this.state.available_states.map(state =>
-                <option key={state} value={state}>{decodeHTML(state)}</option>
-              )}
-            </select>
-          </label> */}
           <div className="responsive-embed widescreen">
             <YouTube videoId={this.state.videoId} opts={videoOptions} />
           </div>
@@ -99,8 +92,6 @@ class Index extends React.Component {
             <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
             <li>Aliquam tincidunt mauris eu risus.</li>
           </ul>
-
-          <SocialMediaShare url="" />
         </div>
         <Footer />
       </>
@@ -108,4 +99,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default withRouter(Index)
