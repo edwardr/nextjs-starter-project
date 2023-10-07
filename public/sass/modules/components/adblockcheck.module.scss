@@ -1,0 +1,43 @@
+@import "../../_variables.scss";
+
+.wrap {
+  z-index: 3000;
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 0 0 6px $colorWhite, 0 0 3px 5px $colorBlack;
+  left: 0;
+  top: 0;
+  margin-left: 0;
+  padding: 1rem;
+  background: $colorWhite;
+  .content {
+    margin: 0 32px;
+    color: $colorBlack;
+    h5 {
+      margin-bottom: 0;
+    }
+    text-align: center;
+    .button {
+      margin-bottom: 0;
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 16px;
+    cursor: pointer;
+    outline: none;
+    img {
+      max-width: 18px;
+    }
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+      box-shadow: 0 0 0 6px $colorWhite, 0 0 3px 5px $colorBlack;
+      outline: 2px dotted transparent;
+      outline-offset: 2px;
+    }
+  }
+}

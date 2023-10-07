@@ -1,0 +1,1 @@
+.card{border-radius:4px;padding:16px}@media screen and (min-width: 640px){.card{text-align:left;display:flex;justify-content:center;padding:24px}}@media screen and (min-width: 992px){.card{padding:32px}}.card .content{width:100%}.card .content h3{font-size:22px;line-height:28px;font-weight:700}.card .content .excerpt{font-size:18px}

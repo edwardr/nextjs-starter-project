@@ -1,0 +1,32 @@
+@import "../_variables.scss";
+
+.breadcrumbRow {
+  margin-top: 16px;
+}
+
+.contentWrap {
+  margin: 0 auto;
+  padding: 16px 0;
+  @media screen and (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 840px;
+    padding: 24px 0;
+  }
+  img {
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  .pageTitle {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 20px;
+    @media screen and ( min-width: 992px ) {
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+  }
+}

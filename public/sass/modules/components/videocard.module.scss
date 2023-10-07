@@ -1,0 +1,19 @@
+@import "../../_variables.scss";
+
+.card {
+	.thumbnail {
+		cursor: pointer;
+	}
+
+	.content {
+		.name {
+			color: $colorBlack;
+			h3 {
+				font-size: 18px;
+				line-height: 22px;
+				font-weight: 400;
+				padding-top: 12px;
+			}
+		}
+	}
+}

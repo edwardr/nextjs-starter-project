@@ -1,0 +1,26 @@
+{
+  "header_menu": [
+    {
+      "name": "Home",
+      "path": "/",
+      "children": []
+    },
+    {
+      "name": "Posts",
+      "path": "/posts",
+      "children": []
+    },
+    {
+      "name": "Videos",
+      "path": "/videos",
+      "children": []
+    }
+  ],
+  "footer_menu": [
+    {
+      "name": "Index",
+      "path": "/",
+      "children": []
+    }
+  ]
+}

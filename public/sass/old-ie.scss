@@ -1,0 +1,28 @@
+@import "_variables.scss";
+
+#no-ie {
+  display: block!important;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background: $colorWhite;
+  color: $colorBlack;
+  position: fixed;
+  z-index: 99999;
+  padding-top: 100px;
+}
+
+#no-ie h4 {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: $colorBlack;
+}
+
+#no-ie img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 400px;
+  max-width: 100%;
+}

@@ -1,0 +1,29 @@
+@import "../_variables.scss";
+
+.contentWrap {
+  margin: 0 auto;
+  padding: 16px 0;
+  @media screen and (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 840px;
+    padding: 24px 0;
+  }
+  .pageTitle {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 20px;
+    @media screen and ( min-width: 1280px ) {
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+  }
+
+  .showMore {
+    text-align: center;
+    .button {
+      margin-bottom: 0;
+    }
+  }
+}

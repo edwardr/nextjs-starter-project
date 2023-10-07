@@ -1,0 +1,30 @@
+@import "../../_variables.scss";
+
+.card {
+  border-radius: 4px;
+  padding: 16px;
+  @media screen and ( min-width: 640px ) {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  @media screen and ( min-width: 992px ) {
+    padding: 32px;
+  }
+
+  .content {
+    width: 100%;
+
+    h3 {
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 700;
+    }
+
+    .excerpt {
+      font-size: 18px;
+    }
+  }
+}

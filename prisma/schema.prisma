@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  //url      = env("DATABASE_URL")
+  url      = "file:dev.db"
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  author    String?
+  date      Int
+  category  String?
+  content   String
+  image     String?
+}
+
+model Video {
+  id        Int @id @default(autoincrement())
+  title     String
+  content   String?
+  video_id  String
+  image     String?
+}

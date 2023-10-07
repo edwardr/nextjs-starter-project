@@ -1,0 +1,31 @@
+@import "../../_variables.scss";
+
+.breadcrumbs {
+  font-size: 16px;
+  @media screen and ( min-width: 992px ) {
+    font-size: 18px;
+  }
+  ul {
+    margin: 0;
+    li {
+      font-size: inherit;
+      display: inline-block;
+      &:before {
+        display: none;
+      }
+    }
+    li:after {
+      content: "";
+      width: 2px;
+      height: 18px;
+      background: $colorBlack;
+      display: inline-block;
+      margin: 0 10px;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+    li:last-child:after {
+      display: none;
+    }
+  }
+}
