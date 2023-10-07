@@ -4,6 +4,7 @@ import Router from 'next/router'
 import Utility from '../helpers/Utility'
 import {decodeHTML} from 'entities'
 import Link from 'next/link'
+import Image from 'next/image'
 import API from '../services/Api'
 
 class BlogCard extends React.Component {
@@ -11,6 +12,7 @@ class BlogCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      //
     };
   }
 
@@ -34,7 +36,20 @@ class BlogCard extends React.Component {
     }
   }
 
+  _renderImage = (image) => {
+    if (!image) return null;
+    return(
+      <Image
+        src={image}
+        width={800}
+        height={600}
+        alt=""
+    />
+    )
+  }
+
   render() {
+    console.log(this.props.image);
     const {title} = this.props;
     const {permalink} = this.props;
     const {excerpt} = this.props;
@@ -47,6 +62,7 @@ class BlogCard extends React.Component {
     return(
       <div className={blogCardStyles.card}>
         <div className={blogCardStyles.thumbnail}>
+          {this._renderImage(this.props.image)}
         </div>
         <div className={blogCardStyles.content}>
           <Link href="/posts/[post]" as={`/posts/${slug}`}>

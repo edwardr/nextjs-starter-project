@@ -90,7 +90,7 @@ class Posts extends React.Component {
                 publication_date={post.date}
                 excerpt={post.content}
                 permalink={post.id}
-                featured_media={false}
+                image={post.image}
                 slug={post.id}
               />
             </div>
