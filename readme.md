@@ -14,6 +14,8 @@ This project uses class components for React, rather than functional components;
 
 Likewise, the project will be slowly converted to Typescript, and I have many additional components that I will be generalizing and adding.
 
+![nextjs-starter-app](https://github.com/edwardr/nextjs-starter-project/assets/2935628/9dc1e11b-521e-48e4-875d-9dcb39cc2f23)
+
 ## Get Started
 Requires Node 16+
 
