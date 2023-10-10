@@ -20,7 +20,8 @@ class SocialMediaShare extends React.Component {
 
   render() {
     const {url} = this.props;
-    let linkedinUrl = url.replace(/\/$/, '');
+    //let linkedinUrl = url.replace(/\/$/, '');
+    let linkedinUrl = "";
     const {title} = this.props;
     return(
       <>
