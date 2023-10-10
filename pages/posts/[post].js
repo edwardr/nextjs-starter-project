@@ -33,7 +33,8 @@ class Post extends React.Component {
       }
     }
 
-    const url = ctx.req.headers.referer;
+    //const url = ctx.req.headers.referer;
+    const url = "";
 
     return {
       data: post,
