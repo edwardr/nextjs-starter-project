@@ -4,27 +4,33 @@ import Utility from '../helpers/Utility'
 import YouTube from 'react-youtube';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SocialMediaShare from '../components/SocialMediaShare';
+//import SocialMediaShare from '../components/SocialMediaShare';
 import indexStyles from '../public/styles/modules/index.module.css';
-import {withRouter} from 'next/router'
-import Cookies from 'js-cookie';
+import {withRouter, NextRouter} from 'next/router'
 
-class Index extends React.Component {
+type IndexState = {
+  available_states: string[];
+  videoId: string;
+  working: boolean;
+  error: boolean;
+};
 
-  constructor(props) {
+type PropsType = {
+  access_token: string;
+  is_server: boolean;
+  router: NextRouter;
+}
+
+class Index extends React.Component<PropsType, IndexState> {
+
+  constructor(props: PropsType) {
     super(props);
     this.state = {
       available_states: [],
       videoId: '86xWVb4XIyE',
       working: false,
-      error: false,
+      error: false
     }
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = () => {
-    //
   }
 
   async componentDidMount() {
@@ -40,7 +46,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const {page} = this.props;
+    //const {page} = this.props;
     const utility = new Utility;
     const videoOptions = {
       playerVars: {
