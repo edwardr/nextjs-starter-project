@@ -56,7 +56,7 @@ class Index extends React.Component<PropsType, IndexState> {
     };
 
     return(
-      <div>
+      <>
         <Head>
           <title key="page-title">NextJS Starter</title>
           <meta charSet="utf-8"/>
@@ -100,7 +100,7 @@ class Index extends React.Component<PropsType, IndexState> {
           </ul>
         </div>
         <Footer />
-      </div>
+      </>
     );
   }
 }
